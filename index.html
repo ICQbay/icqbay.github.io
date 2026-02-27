@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            transition: background 2s ease;
+        }
+        .container {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            transition: color 0.5s ease;
+        }
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="hero">
+        <h1>Welcome to My Site</h1>
+        <p>This is a stylish, modern landing page with gradient backgrounds and clean typography. Customize it to fit your brand or project.</p>
+    </div>
+
+    <script>
+        const hero = document.getElementById('hero');
+        const gradients = [
+            'linear-gradient(135deg, #6e8efb, #a777e3)',
+            'linear-gradient(135deg, #5ee7df, #b490ca)',
+            'linear-gradient(135deg, #f093fb, #f5576c)',
+            'linear-gradient(135deg, #4facfe, #00f2fe)'
+        ];
+        let index = 0;
+
+        hero.addEventListener('mouseenter', () => {
+            document.body.style.background = gradients[index];
+            hero.querySelector('h1').style.color = '#fff';
+            index = (index + 1) % gradients.length;
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            document.body.style.background = gradients[(index - 1 + gradients.length) % gradients.length];
+        });
+    </script>
+</body>
+</html>
