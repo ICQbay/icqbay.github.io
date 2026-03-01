@@ -11,6 +11,8 @@
       background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
       color: #e0e0e0;
       line-height: 1.6;
+      background-size: cover;
+      background-position: center;
     }
     header {
       text-align: center;
@@ -55,6 +57,13 @@
       border-top: 1px solid #333;
     }
   </style>
+  <script>
+    // Randomly select a background image from background1.png to background9.png
+    document.addEventListener("DOMContentLoaded", function() {
+      const randomIndex = Math.floor(Math.random() * 9) + 1; 
+      document.body.style.backgroundImage = `url('background${randomIndex}.png')`;
+    });
+  </script>
 </head>
 <body>
   <header>
